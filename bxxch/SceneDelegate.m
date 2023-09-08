@@ -11,7 +11,7 @@
 #import "views/RecommendViewController.h"
 #import "views/SettingsViewController.h"
 
-@interface SceneDelegate ()
+@interface SceneDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -39,31 +39,28 @@
     
     
     DemoViewController *home = [[DemoViewController alloc] init];
-    home.tabBarItem.title = @"Home";
-    home.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x"];
-    home.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x"];
 
     NewsViewController *news = [[NewsViewController alloc] init];
-    news.tabBarItem.title = @"News";
-    news.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/like@2x"];
-    news.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/like_selected@2x"];
 
     RecommendViewController *recommend = [[RecommendViewController alloc] init];
-    recommend.tabBarItem.title = @"Recommend";
-    recommend.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x"];
-    recommend.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected@2x"];
     
     SettingsViewController *settings = [[SettingsViewController alloc] init];
-    settings.tabBarItem.title = @"Settings";
-    settings.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x"];
-    settings.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x"];
 
     tab.view.backgroundColor = UIColor.whiteColor;
     tab.viewControllers = @[home, news, recommend, settings];
+    // 将 UITabarController 委托给当前实例
+    tab.delegate = self;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tab];
     // 根节点
-    self.window.rootViewController = tab;
+    self.window.rootViewController = nav;
     // Called when the scene has moved from an inactive state to an active state.
     // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+}
+
+// 代理的方法
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"Select Bar");
 }
 
 

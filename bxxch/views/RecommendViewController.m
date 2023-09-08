@@ -51,8 +51,21 @@
 
 @implementation RecommendViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.tabBarItem.title = @"Recommend";
+        self.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected@2x"];
+    }
+    return self;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 点击事件
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
 
     self.view.backgroundColor = UIColor.whiteColor;
     // 最基本的 UIView
@@ -67,11 +80,21 @@
     UIView *greenSquare = [[UIView alloc] init];
     greenSquare.backgroundColor = UIColor.greenColor;
     greenSquare.frame = CGRectMake(80, 80, 100, 100);
+    [greenSquare addGestureRecognizer:tap];
 
     [self.view addSubview:redSquare];
     [self.view addSubview:buleSquare];
     [self.view addSubview:greenSquare];
 }
 
+- (void) pushController {
+    
+    UIViewController *popView = [[UIViewController alloc] init];
+    popView.view.backgroundColor = UIColor.whiteColor;
+    popView.navigationItem.title = @"POP";
+    // 新页面入栈
+    [self.navigationController pushViewController:popView animated:true];
+    NSLog(@"Click Square");
+}
 
 @end
