@@ -54,6 +54,8 @@
 //            UIImageView *myImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"myImage.png"]];
             self.rightCellImage = [[UIImageView alloc] initWithFrame:CGRectMake(330, 15, 40, 40)];
             self.rightCellImage.backgroundColor = UIColor.orangeColor;
+            // 设置图片适应方式
+            self.contentMode = UIViewContentModeScaleToFill;
             self.rightCellImage;
 //            self.timeLabel.backgroundColor = UIColor.yellowColor;
 //            self.timeLabel.font = [UIFont systemFontOfSize:12];
