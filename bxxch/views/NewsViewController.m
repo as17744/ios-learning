@@ -42,6 +42,7 @@
     if (!cell) {
         cell = [[MyTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     }
+    
     NSString *title = @"啊哈哈哈哈";
     NSString *source = @"USA";
     NSString *comment = @"MJJ";

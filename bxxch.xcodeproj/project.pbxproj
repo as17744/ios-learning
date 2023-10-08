@@ -13,6 +13,7 @@
 		2B23EE472A4E797500663A63 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B23EE462A4E797500663A63 /* RecommendViewController.m */; };
 		2B23EE492A4E7AF100663A63 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B23EE482A4E7AF100663A63 /* SettingsViewController.m */; };
 		2B4970C42AAAC6430024EDDD /* webcast_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4970C32AAAC6430024EDDD /* webcast_logo.png */; };
+		2B4970C72AD0FC670024EDDD /* WebviewPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4970C62AD0FC670024EDDD /* WebviewPlayViewController.m */; };
 		2B52D7F02A826BAE007AB338 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B52D7EF2A826BAE007AB338 /* MyTableViewCell.m */; };
 		2B889A502A42FF39005FE5AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B889A4F2A42FF39005FE5AE /* AppDelegate.m */; };
 		2B889A532A42FF39005FE5AE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B889A522A42FF39005FE5AE /* SceneDelegate.m */; };
@@ -33,6 +34,8 @@
 		2B23EE482A4E7AF100663A63 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2B23EE4A2A4E7B0300663A63 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		2B4970C32AAAC6430024EDDD /* webcast_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webcast_logo.png; sourceTree = "<group>"; };
+		2B4970C52AD0FC670024EDDD /* WebviewPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewPlayViewController.h; sourceTree = "<group>"; };
+		2B4970C62AD0FC670024EDDD /* WebviewPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewPlayViewController.m; sourceTree = "<group>"; };
 		2B52D7EE2A826BAE007AB338 /* MyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
 		2B52D7EF2A826BAE007AB338 /* MyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
 		2B889A4B2A42FF39005FE5AE /* bxxch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bxxch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +89,8 @@
 			children = (
 				2B52D7EE2A826BAE007AB338 /* MyTableViewCell.h */,
 				2B52D7EF2A826BAE007AB338 /* MyTableViewCell.m */,
+				2B4970C52AD0FC670024EDDD /* WebviewPlayViewController.h */,
+				2B4970C62AD0FC670024EDDD /* WebviewPlayViewController.m */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				2B52D7F02A826BAE007AB338 /* MyTableViewCell.m in Sources */,
 				2B23EE3F2A4E6F2A00663A63 /* DemoViewController.m in Sources */,
 				2B889A532A42FF39005FE5AE /* SceneDelegate.m in Sources */,
+				2B4970C72AD0FC670024EDDD /* WebviewPlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

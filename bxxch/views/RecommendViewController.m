@@ -6,6 +6,7 @@
 //
 
 #import "RecommendViewController.h"
+#import "WebviewPlayViewController.h"
 // 测试生命周期，继承至 UIView
 @interface ViewLifeCycleTest: UIView
 
@@ -45,13 +46,16 @@
 
 // 展示层内容
 
-@interface RecommendViewController ()
+@interface RecommendViewController ()<UIGestureRecognizerDelegate>
+
+@property(nonatomic, readwrite) Boolean tapable;
 
 @end
 
 @implementation RecommendViewController
 
 - (instancetype)init {
+    self.tapable = true;
     self = [super init];
     if (self) {
         self.tabBarItem.title = @"Recommend";
@@ -66,6 +70,9 @@
     [super viewDidLoad];
     // 点击事件
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
+    
+    UITapGestureRecognizer *changeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapableChange)];
+    changeTap.delegate = self;
 
     self.view.backgroundColor = UIColor.whiteColor;
     // 最基本的 UIView
@@ -73,9 +80,11 @@
     redSquare.backgroundColor = UIColor.redColor;
     redSquare.frame = CGRectMake(0, 0, 100, 100);
     
-    UIView *buleSquare = [[UIView alloc] init];
-    buleSquare.backgroundColor = UIColor.blueColor;
-    buleSquare.frame = CGRectMake(50, 50, 100, 100);
+    UIView *blueSquare = [[UIView alloc] init];
+    blueSquare.backgroundColor = UIColor.blueColor;
+    blueSquare.frame = CGRectMake(50, 50, 100, 100);
+    [blueSquare addGestureRecognizer:changeTap];
+    
     
     UIView *greenSquare = [[UIView alloc] init];
     greenSquare.backgroundColor = UIColor.greenColor;
@@ -83,15 +92,30 @@
     [greenSquare addGestureRecognizer:tap];
 
     [self.view addSubview:redSquare];
-    [self.view addSubview:buleSquare];
+    [self.view addSubview:blueSquare];
     [self.view addSubview:greenSquare];
 }
 
+- (void) viewTapableChange {
+    NSLog(@"Tap");
+    self.tapable = false;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.tapable) {
+        NSLog(@"1");
+        return YES;
+    } else {
+        NSLog(@"2");
+        return NO;
+    }
+}
+
 - (void) pushController {
-    
-    UIViewController *popView = [[UIViewController alloc] init];
+    // 弹出网页
+    UIViewController *popView = [[WebviewPlayViewController alloc] init];
     popView.view.backgroundColor = UIColor.whiteColor;
-    popView.navigationItem.title = @"POP";
+    popView.navigationItem.title = @"Playground";
     // 新页面入栈
     [self.navigationController pushViewController:popView animated:true];
     NSLog(@"Click Square");

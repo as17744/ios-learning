@@ -14,6 +14,7 @@
 @property(nonatomic, strong, readwrite) UILabel *commentLabel;
 @property(nonatomic, strong, readwrite) UILabel *timeLabel;
 @property(nonatomic, strong, readwrite) UIImageView *rightCellImage;
+@property(nonatomic, strong, readwrite) UIButton *deleteButton;
 
 @end
 
@@ -62,10 +63,23 @@
 //            self.timeLabel.textColor = UIColor.grayColor;
 //            self.timeLabel;
         })];
-
+        // 右下角 Button
+        [self.contentView addSubview:({
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(350, 70, 20, 10)];
+            self.deleteButton.backgroundColor = UIColor.blueColor;
+            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];
+            [self.deleteButton setTitle:@"C" forState:UIControlStateHighlighted];
+            // 添加事件
+            [self.deleteButton addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
+            self.deleteButton;
+        })];
 
     }
     return self;
+}
+
+- (void)deleteClick {
+    NSLog(@"Delete Click");
 }
 
 - (void)setLabelText:(NSString *)title source:(NSString *)source comment:(NSString *)comment time:(NSString *)time {
